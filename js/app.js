@@ -1,14 +1,6 @@
-// DONE Stores the min/max hourly customers, and the average cookies per customer, in object properties
+'use strict';
 
-// DONE  Uses a method of that object to generate a random number of customers per hour. Objects/Math/random
-
-// Done Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated
-
-// Done Store the results for each location in a separate array... perhaps as a property of the object representing that location
-// Done Display the values of each array as unordered lists in the browser
-
-
-// First and Pike Location.
+// First And Pike Location
 
 var storeHours= ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm' , '8pm'];
 
@@ -22,13 +14,14 @@ var firstandpike = {
   cookieTotal: 0,
   salePerHour: function(){
 
-    var randomNumCustomer = ((Math.random() * (this.maxCust - this.minCust) + this.minCust))*this.custAvgSale;
-    var randomNum =  Math.round(randomNumCustomer);
+
     this.projections.push(randomNum);
 
     var firstandpikeContainer = document.getElementById('firstandpike');
 
     for( var i=0; i < storeHours.length; i++ ) {
+      var randomNumCustomer = ((Math.random() * (this.maxCust - this.minCust) + this.minCust))*this.custAvgSale;
+      var randomNum =  Math.round(randomNumCustomer);
       var teamElement = document.createElement('li');
       teamElement.textContent = storeHours[i] + ':' + randomNum + 'cookies';
       this.cookieTotal += randomNum;
@@ -45,8 +38,6 @@ console.log(firstandpike);
 
 
 
-
-
 // SeaTac Airport Location.
 
 var seatacairport = {
@@ -57,13 +48,14 @@ var seatacairport = {
   custAvgSale: 1.2,
   cookieTotal: 0,
   salePerHour: function(){
-    var randomNumCustomer = ((Math.random() * (this.maxCust - this.minCust) + this.minCust))*this.custAvgSale;
-    var randomNum =  Math.round(randomNumCustomer);
+
     this.projections.push(randomNum);
 
     var seatacairportContainer = document.getElementById('seatacairport');
 
     for( var i=0; i < storeHours.length; i++ ) {
+      var randomNumCustomer = ((Math.random() * (this.maxCust - this.minCust) + this.minCust))*this.custAvgSale;
+      var randomNum =  Math.round(randomNumCustomer);
       var teamElement = document.createElement('li');
       teamElement.textContent = storeHours[i] + ':' + randomNum + 'cookies';
       this.cookieTotal += randomNum;
@@ -87,13 +79,14 @@ var seattlecenter = {
   custAvgSale: 3.7,
   cookieTotal: 0,
   salePerHour: function(){
-    var randomNumCustomer = ((Math.random() * (this.maxCust - this.minCust) + this.minCust))*this.custAvgSale;
-    var randomNum =  Math.round(randomNumCustomer);
+
     this.projections.push(randomNum);
 
     var seattlecenterContainer = document.getElementById('seattlecenter');
 
     for( var i=0; i < storeHours.length; i++ ) {
+      var randomNumCustomer = ((Math.random() * (this.maxCust - this.minCust) + this.minCust))*this.custAvgSale;
+      var randomNum =  Math.round(randomNumCustomer);
       var teamElement = document.createElement('li');
       teamElement.textContent = storeHours[i] + ':' + randomNum + 'cookies';
       this.cookieTotal += randomNum;
@@ -117,13 +110,14 @@ var capitolhill = {
   custAvgSale: 3.7,
   cookieTotal: 0,
   salePerHour: function(){
-    var randomNumCustomer = ((Math.random() * (this.maxCust - this.minCust) + this.minCust))*this.custAvgSale;
-    var randomNum =  Math.round(randomNumCustomer);
+
     this.projections.push(randomNum);
 
     var capitolhillContainer = document.getElementById('capitolhill');
 
     for( var i=0; i < storeHours.length; i++ ) {
+      var randomNumCustomer = ((Math.random() * (this.maxCust - this.minCust) + this.minCust))*this.custAvgSale;
+      var randomNum =  Math.round(randomNumCustomer);
       var teamElement = document.createElement('li');
       teamElement.textContent = storeHours[i] + ':' + randomNum + 'cookies';
       this.cookieTotal += randomNum;
@@ -150,13 +144,14 @@ var alki = {
   custAvgSale: 3.7,
   cookieTotal: 0,
   salePerHour: function(){
-    var randomNumCustomer = ((Math.random() * (this.maxCust - this.minCust) + this.minCust))*this.custAvgSale;
-    var randomNum =  Math.round(randomNumCustomer);
+
     this.projections.push(randomNum);
 
     var alkiContainer = document.getElementById('alki');
 
     for( var i=0; i < storeHours.length; i++ ) {
+      var randomNumCustomer = ((Math.random() * (this.maxCust - this.minCust) + this.minCust))*this.custAvgSale;
+      var randomNum =  Math.round(randomNumCustomer);
       var teamElement = document.createElement('li');
       teamElement.textContent = storeHours[i] + ':' + randomNum + 'cookies';
       this.cookieTotal += randomNum;
