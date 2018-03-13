@@ -11,13 +11,17 @@
 // First and Pike Location.
 
 var storeHours= ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm' , '8pm'];
+
+
 var firstandpike = {
   storeLocation: '1st & Pike',
   projections:[],
   minCust: 23,
   maxCust: 65,
   custAvgSale: 6.3,
+  cookieTotal: 0,
   salePerHour: function(){
+
     var randomNumCustomer = ((Math.random() * (this.maxCust - this.minCust) + this.minCust))*this.custAvgSale;
     var randomNum =  Math.round(randomNumCustomer);
     this.projections.push(randomNum);
@@ -27,16 +31,20 @@ var firstandpike = {
     for( var i=0; i < storeHours.length; i++ ) {
       var teamElement = document.createElement('li');
       teamElement.textContent = storeHours[i] + ':' + randomNum + 'cookies';
+      this.cookieTotal += randomNum;
       firstandpikeContainer.appendChild(teamElement);
 
     }
-
+    teamElement.textContent = 'Total:' + this.cookieTotal;
   }
 };
 
 
 firstandpike.salePerHour();
 console.log(firstandpike);
+
+
+
 
 
 // SeaTac Airport Location.
@@ -47,6 +55,7 @@ var seatacairport = {
   minCust: 3,
   maxCust: 24,
   custAvgSale: 1.2,
+  cookieTotal: 0,
   salePerHour: function(){
     var randomNumCustomer = ((Math.random() * (this.maxCust - this.minCust) + this.minCust))*this.custAvgSale;
     var randomNum =  Math.round(randomNumCustomer);
@@ -57,9 +66,10 @@ var seatacairport = {
     for( var i=0; i < storeHours.length; i++ ) {
       var teamElement = document.createElement('li');
       teamElement.textContent = storeHours[i] + ':' + randomNum + 'cookies';
+      this.cookieTotal += randomNum;
       seatacairportContainer.appendChild(teamElement);
     }
-
+    teamElement.textContent = 'Total:' + this.cookieTotal;
   }
 };
 
@@ -75,6 +85,7 @@ var seattlecenter = {
   minCust: 11,
   maxCust: 38,
   custAvgSale: 3.7,
+  cookieTotal: 0,
   salePerHour: function(){
     var randomNumCustomer = ((Math.random() * (this.maxCust - this.minCust) + this.minCust))*this.custAvgSale;
     var randomNum =  Math.round(randomNumCustomer);
@@ -85,9 +96,10 @@ var seattlecenter = {
     for( var i=0; i < storeHours.length; i++ ) {
       var teamElement = document.createElement('li');
       teamElement.textContent = storeHours[i] + ':' + randomNum + 'cookies';
+      this.cookieTotal += randomNum;
       seattlecenterContainer.appendChild(teamElement);
     }
-
+    teamElement.textContent = 'Total:' + this.cookieTotal;
   }
 };
 
@@ -103,6 +115,7 @@ var capitolhill = {
   minCust: 11,
   maxCust: 38,
   custAvgSale: 3.7,
+  cookieTotal: 0,
   salePerHour: function(){
     var randomNumCustomer = ((Math.random() * (this.maxCust - this.minCust) + this.minCust))*this.custAvgSale;
     var randomNum =  Math.round(randomNumCustomer);
@@ -113,9 +126,10 @@ var capitolhill = {
     for( var i=0; i < storeHours.length; i++ ) {
       var teamElement = document.createElement('li');
       teamElement.textContent = storeHours[i] + ':' + randomNum + 'cookies';
+      this.cookieTotal += randomNum;
       capitolhillContainer.appendChild(teamElement);
     }
-
+    teamElement.textContent = 'Total:' + this.cookieTotal;
   }
 };
 
@@ -134,6 +148,7 @@ var alki = {
   minCust: 11,
   maxCust: 38,
   custAvgSale: 3.7,
+  cookieTotal: 0,
   salePerHour: function(){
     var randomNumCustomer = ((Math.random() * (this.maxCust - this.minCust) + this.minCust))*this.custAvgSale;
     var randomNum =  Math.round(randomNumCustomer);
@@ -144,9 +159,10 @@ var alki = {
     for( var i=0; i < storeHours.length; i++ ) {
       var teamElement = document.createElement('li');
       teamElement.textContent = storeHours[i] + ':' + randomNum + 'cookies';
+      this.cookieTotal += randomNum;
       alkiContainer.appendChild(teamElement);
     }
-
+    teamElement.textContent = 'Total:' + this.cookieTotal;
   }
 };
 
