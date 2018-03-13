@@ -28,10 +28,12 @@ var firstandpike = {
       var teamElement = document.createElement('li');
       teamElement.textContent = storeHours[i] + ':' + randomNum + 'cookies';
       firstandpikeContainer.appendChild(teamElement);
+
     }
 
   }
 };
+
 
 firstandpike.salePerHour();
 console.log(firstandpike);
