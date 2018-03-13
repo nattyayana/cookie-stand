@@ -24,9 +24,9 @@ var firstandpike = {
 
     var firstandpikeContainer = document.getElementById('firstandpike');
 
-    for( var i=0; 'i' < storeHours.length; i++ ) {
+    for( var i=0; i < storeHours.length; i++ ) {
       var teamElement = document.createElement('li');
-      teamElement.textContent = storeHours[i] + ':' + randomNum;
+      teamElement.textContent = storeHours[i] + ':' + randomNum + 'cookies';
       firstandpikeContainer.appendChild(teamElement);
     }
 
@@ -52,9 +52,9 @@ var seatacairport = {
 
     var seatacairportContainer = document.getElementById('seatacairport');
 
-    for( var i=0; 'i' < storeHours.length; i++ ) {
+    for( var i=0; i < storeHours.length; i++ ) {
       var teamElement = document.createElement('li');
-      teamElement.textContent = storeHours[i] + ':' + randomNum;
+      teamElement.textContent = storeHours[i] + ':' + randomNum + 'cookies';
       seatacairportContainer.appendChild(teamElement);
     }
 
@@ -80,9 +80,9 @@ var seattlecenter = {
 
     var seattlecenterContainer = document.getElementById('seattlecenter');
 
-    for( var i=0; 'i' < storeHours.length; i++ ) {
+    for( var i=0; i < storeHours.length; i++ ) {
       var teamElement = document.createElement('li');
-      teamElement.textContent = storeHours[i] + ':' + randomNum;
+      teamElement.textContent = storeHours[i] + ':' + randomNum + 'cookies';
       seattlecenterContainer.appendChild(teamElement);
     }
 
@@ -98,9 +98,9 @@ console.log(seattlecenter);
 var capitolhill = {
   storeLocation: 'Capitol Hill',
   projections:[],
-  minCust: 20,
+  minCust: 11,
   maxCust: 38,
-  custAvgSale: 2.3,
+  custAvgSale: 3.7,
   salePerHour: function(){
     var randomNumCustomer = ((Math.random() * (this.maxCust - this.minCust) + this.minCust))*this.custAvgSale;
     var randomNum =  Math.round(randomNumCustomer);
@@ -108,9 +108,9 @@ var capitolhill = {
 
     var capitolhillContainer = document.getElementById('capitolhill');
 
-    for( var i=0; 'i' < storeHours.length; i++ ) {
+    for( var i=0; i < storeHours.length; i++ ) {
       var teamElement = document.createElement('li');
-      teamElement.textContent = storeHours[i] + ':' + randomNum;
+      teamElement.textContent = storeHours[i] + ':' + randomNum + 'cookies';
       capitolhillContainer.appendChild(teamElement);
     }
 
@@ -123,25 +123,25 @@ console.log(capitolhill);
 
 
 
-// Alki Store Location.
 
+// Alki Store Location.
 
 var alki = {
   storeLocation: 'Alki',
   projections:[],
-  minCust: 2,
-  maxCust: 16,
-  custAvgSale: 4.6,
+  minCust: 11,
+  maxCust: 38,
+  custAvgSale: 3.7,
   salePerHour: function(){
     var randomNumCustomer = ((Math.random() * (this.maxCust - this.minCust) + this.minCust))*this.custAvgSale;
     var randomNum =  Math.round(randomNumCustomer);
     this.projections.push(randomNum);
 
-    var alkiContainer = document.getElementById('Alki');
+    var alkiContainer = document.getElementById('alki');
 
-    for( var i=0; 'i' < storeHours.length; i++ ) {
+    for( var i=0; i < storeHours.length; i++ ) {
       var teamElement = document.createElement('li');
-      teamElement.textContent = storeHours[i] + ':' + randomNum;
+      teamElement.textContent = storeHours[i] + ':' + randomNum + 'cookies';
       alkiContainer.appendChild(teamElement);
     }
 
