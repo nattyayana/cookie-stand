@@ -19,8 +19,12 @@ Store.prototype.render = function () {
 
   var trElement = document.createElement('tr');
   var tdElement = document.createElement('td');
+
+  // give td content (name, then color, then breed, the nickname) <- eventually do it in a for loop
   tdElement.textContent = this.storeLocation;
   trElement.appendChild(tdElement);
+
+
 
 
   tdElement = document.createElement('td');
@@ -50,6 +54,40 @@ var seattlecenter = new Store('Seattle Center', 11, 38, 3.7);
 var capitiolhill = new Store('Capitol Hill', 20, 38, 2.3);
 var alki = new Store('Alki Beach', 2, 16, 4.6);
 console.log(allStores);
+
+
+
+function makeHeaderRow() {
+  var headerTrElement = document.createElement('tr');
+  var thElement = document.createElement('th');
+  thElement.textContent = 'storeLocation';
+  headerTrElement.appendChild(thElement);
+
+  thElement = document.createElement('th');
+  thElement.textContent = 'minCust';
+  headerTrElement.appendChild(thElement);
+
+  thElement = document.createElement('th');
+  thElement.textContent = 'maxCust';
+  headerTrElement.appendChild(thElement);
+
+  thElement = document.createElement('th');
+  thElement.textContent = 'custAvgSale';
+  headerTrElement.appendChild(thElement);
+
+  storeTable.appendChild(headerTrElement);
+}
+
+// It would be nice to have a single function that renders all of the individual dog rows...
+
+// Now we need to call our functions: the one for the header row, and the one for generating the individual dog rows
+makeHeaderRow();
+storeLocation.render();
+minCust.render();
+maxCust.render();
+custAvgSale.render();
+
+
 
 
 
@@ -88,14 +126,6 @@ console.log(allStores);
 
 // firstandpike.salePerHour();
 // console.log(firstandpike);
-
-
-
-
-
-
-
-
 
 
 
