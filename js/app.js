@@ -1,55 +1,183 @@
 'use strict';
 
-
+// We need an array to hold our dogs
 var allStores = [];
+
+
 var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm' , '8pm'];
 
+// We need to access the table that is in the DOM
 var storeTable= document.getElementById('store');
 
-function Store(storeLocation, minCust, maxCust, custAvgSale) {
-  this.storeLocation = storeLocation;
+
+// We need a constructor to make our dog objects
+function Store(storeLocation, minCust, maxCust, avgCookieSale) {
+  this.store = storeLocation;
   this.minCust = minCust;
   this.maxCust = maxCust;
-  this.custAvgSale = custAvgSale;
+  this.avgSale = avgCookieSale;
   this.hourlyCookieSales = [];
+  this.dayTotals = 0;
   allStores.push(this);
 }
 
-Store.prototype.render = function () {
+// Make the table header
+function makeHeaderRow() {
 
-  var trElement = document.createElement('tr');
-  var tdElement = document.createElement('td');
-  tdElement.textContent = this.storeLocation;
-  trElement.appendChild(tdElement);
+  var headerTrElement = document.createElement('tr');
+  var thElement = document.createElement('th');
+
+  thElement.textContent = 'storeLocation';
+  headerTrElement.appendChild(thElement);
+
+  for ( var i = 0; i < storeHours.length; i++) {
+
+    thElement = document.createElement('th');
+    thElement.textContent = storeHours[i];
+    headerTrElement.appendChild(thElement);
+
+  }
+
+  thElement = document.createElement('th');
+  thElement.textContent = 'Day Total';
+  headerTrElement.appendChild(thElement);
+  storeTable.appendChild(headerTrElement);
+
+}
+makeHeaderRow();
 
 
-  tdElement = document.createElement('td');
-  tdElement.textContent = this.minCust;
-  trElement.appendChild(tdElement);
+var StoreConstructor = function ( storeLocation, minCust, maxCust, avgCookieSale) {
+
+  this.store = storeLocation;
+  this.minCust = minCust;
+  this.maxCust = maxCust;
+  this.avgSale = avgCookieSale;
+  this.hourlyCookieSales = [];
+  this.dayTotals = 0;
+  allStores.push(this);
 
 
-
-  tdElement = document.createElement('td');
-  tdElement.textContent = this.maxCust;
-  trElement.appendChild(tdElement);
-
-
-
-  tdElement = document.createElement('td');
-  tdElement.textContent = this.custAvgSale;
-  trElement.appendChild(tdElement);
-
-
-  storeTable.appendChild(trElement);
 };
 
-// We need to create our Dog instances
-var pike = new Store('1st and Pike', 23, 65, 6.3);
-var seatac = new Store('Seatac Airport', 3, 24, 1.2);
-var seattlecenter = new Store('Seattle Center', 11, 38, 3.7);
-var capitiolhill = new Store('Capitol Hill', 20, 38, 2.3);
-var alki = new Store('Alki Beach', 2, 16, 4.6);
-console.log(allStores);
+
+StoreConstructor.prototype.hourlyCookieSales = function () {
+
+  var dayTotals = 0;
+
+
+
+
+}
+
+
+// // Render the dogs in the table
+// Store.prototype.render = function () {
+//   var trElement = document.createElement('tr');
+
+//   var tdElement = document.createElement('td');
+//   tdElement.textContent = this.store;
+//   trElement.appendChild(tdElement);
+
+//   tdElement = document.createElement('td');
+//   tdElement.textContent = this.minCust;
+//   trElement.appendChild(tdElement);
+
+//   tdElement = document.createElement('td');
+//   tdElement.textContent = this.maxCust;
+//   trElement.appendChild(tdElement);
+
+//   tdElement = document.createElement('td');
+//   tdElement.textContent = this.avgSale;
+//   trElement.appendChild(tdElement);
+
+//   storeTable.appendChild(trElement);
+
+// };
+
+// // We need to create our Dog instances
+
+// var pike = new Store('1st and Pike', 23, 65, 6.3);
+
+
+// var seatac = new Store('Seatac Airport', 3, 24, 1.2);
+
+
+// var seattlecenter = new Store('Seattle Center', 11, 38, 3.7);
+
+
+// var capitiolhill = new Store('Capitol Hill', 20, 38, 2.3);
+
+
+// var alki = new Store('Alki Beach', 2, 16, 4.6);
+
+
+
+
+
+
+
+
+
+
+// // step 3
+// storeHours.prototype.hourlyCookieSales = function ( ) {
+
+// var dayTotals = 0;
+
+
+
+
+
+// };
+
+// // step 4
+// Store.prototype.render = function () {
+
+
+//   // create tr
+//   var trElement = document.createElement('tr');
+//   // create td
+//   var tdElement = document.createElement('td');
+//   // give td content (name, then color, then breed, the nickname) <- eventually do it in a for loop
+//   tdElement.textContent = this.name;
+//   // append td to tr
+//   trElement.appendChild(tdElement);
+
+
+
+//   trElement = document.createElement('tr');
+//   tdElement = document.createElement('td');
+//   tdElement.textContent = this.storeLocation;
+//   trElement.appendChild(tdElement);
+
+
+
+
+//   storeTable.appendChild(trElement);
+// };
+
+
+
+
+
+
+// console.log(allStores);
+
+
+
+
+
+//step6 
+
+function renderAlldogs (){ 
+  for (var I in allDogs);
+
+
+
+
+
+}
 
 
 

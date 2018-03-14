@@ -1,5 +1,5 @@
-ul {
-  font-family: Helvetica, Arial, Sans-Serif;
+* {
+	font-family: 'Montserrat', sans-serif;
 }
 
 .float {
@@ -18,9 +18,25 @@ ul {
     background-color: salmon;
 }
 
-h1 {
-  color: black;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center; 
-} 
+h1, h2, legend, label {
+  color: white;
+  
+}
+
+table {
+	border: 10px solid #4ABDAC;
+	empty-cells: hide;
+}
+
+td {
+	padding: 10px;
+	border-radius: 15px;
+  border: 1px solid black;
+  background: white;
+}
+
+th {
+	background-color: #F7B733;
+	color: #76323F;
+}
+
