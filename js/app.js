@@ -63,12 +63,76 @@ var StoreConstructor = function ( storeLocation, minCust, maxCust, avgCookieSale
 
 StoreConstructor.prototype.hourlyCookieSales = function () {
 
-  var dayTotals = 0;
+  var dayTotal = 0;
+
+  for ( var i = 0; i < storeHours.length; i++) {
+
+    var cusRandomNum = (Math.random() * (this.maxCust - this.minCust) + (this.minCust));
+
+    var hourlyCookieSales = (Math.floor(cusRandomNum * this.avgSale));
+
+    dayTotal += hourlyCookieSales;
+
+    this.hourlyCookieSales.push(hourlyCookieSales);
+
+  }
+  this.dayTotals = dayTotal;
+
+};
 
 
+StoreConstructor.prototype.render = function () {
 
 
-}
+  var trElement = document.createElement('tr');
+
+  var tdElement = document.createElement('td');
+
+  tdElement.textContent = this.store;
+
+  trElement.appendChild(tdElement);
+
+
+  for ( var i = 0; i < storeHours.length; i++) {
+
+    tdElement = document.createElement('tr');
+
+    trElement.textContent = this.hourlyCookieSales[i];
+
+    trElement.appendChild(tdElement);
+
+  }
+
+  tdElement = document.createElement('tr');
+
+  tdElement.textContent = this.dayTotals[i];
+
+  tdElement.appendChild(tdElement);
+
+  storeTable.appendChild(trElement);
+
+};
+
+
+var pike = new StoreConstructor('1st and Pike', 23, 65, 6.3);
+pike.hourlyCookieSales();
+pike.render();
+
+var seatac = new StoreConstructor('Seatac Airport', 3, 24, 1.2);
+seatac.hourlyCookieSales();
+seatac.render();
+
+var seattlecenter = new StoreConstructor('Seattle Center', 11, 38, 3.7);
+seattlecenter.hourlyCookieSales();
+seattlecenter.render();
+
+var capitiolhill = new StoreConstructor('Capitol Hill', 20, 38, 2.3);
+capitiolhill.hourlyCookieSales();
+capitiolhill.render();
+
+var alki = new StoreConstructor('Alki Beach', 2, 16, 4.6);
+alki.hourlyCookieSales();
+alki.render(); 
 
 
 // // Render the dogs in the table
@@ -97,19 +161,7 @@ StoreConstructor.prototype.hourlyCookieSales = function () {
 
 // // We need to create our Dog instances
 
-// var pike = new Store('1st and Pike', 23, 65, 6.3);
 
-
-// var seatac = new Store('Seatac Airport', 3, 24, 1.2);
-
-
-// var seattlecenter = new Store('Seattle Center', 11, 38, 3.7);
-
-
-// var capitiolhill = new Store('Capitol Hill', 20, 38, 2.3);
-
-
-// var alki = new Store('Alki Beach', 2, 16, 4.6);
 
 
 
@@ -168,16 +220,16 @@ StoreConstructor.prototype.hourlyCookieSales = function () {
 
 
 
-//step6 
+// //step6
 
-function renderAlldogs (){ 
-  for (var I in allDogs);
-
-
+// function renderAlldogs (){
+//   for (var I in allDogs);
 
 
 
-}
+
+
+// }
 
 
 
@@ -353,6 +405,4 @@ function renderAlldogs (){
 // };
 
 // alki.salePerHour();
-// console.log(alki);
-
-
+// console.log(alki)
