@@ -121,3 +121,4 @@ capitiolhill.render();
 var alki = new Store('Alki Beach', 2, 16, 4.6);
 alki.creatingCookieSales();
 alki.render();
+
