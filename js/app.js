@@ -7,6 +7,9 @@ var allStores = [];
 var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm' , '8pm'];
 
 
+
+//var totalHourlyCookies = ('0','0','0','0','0','0','0','0','0','0','0','0','0','0','0',);
+
 // We need to access the table that is in the DOM
 var storeTable= document.getElementById('store');
 
@@ -21,7 +24,12 @@ function Store(storeLocation, minCust, maxCust, avgCookieSale) {
   this.maxCust = maxCust;
   this.avgSale = avgCookieSale;
   this.hourlyCookieSales = [];
+
+  //this.calculatehoursale();
   this.dayTotals = 0;
+
+
+
   allStores.push(this);
 }
 
@@ -106,64 +114,25 @@ Store.prototype.render = function () {
 };
 
 
-var pike = new Store('1st and Pike', 23, 65, 6.3);
-pike.creatingCookieSales();
-pike.render();
-
-var seatac = new Store('Seatac Airport', 3, 24, 1.2);
-seatac.creatingCookieSales();
-seatac.render();
-
-var seattlecenter = new Store('Seattle Center', 11, 38, 3.7);
-seattlecenter.creatingCookieSales();
-seattlecenter.render();
-
-var capitiolhill = new Store('Capitol Hill', 20, 38, 2.3);
-capitiolhill.creatingCookieSales();
-capitiolhill.render();
-
-var alki = new Store('Alki Beach', 2, 16, 4.6);
-alki.creatingCookieSales();
-alki.render();
-
-
-
-
-
-// UNCOMMENT BELLOW TO SEE WHERE I REALLY STOPPED AT
-
+new Store('1st and Pike', 23, 65, 6.3);
+new Store('Seatac Airport', 3, 24, 1.2);
+new Store('Seattle Center', 11, 38, 3.7);
+new Store('Capitol Hill', 20, 38, 2.3);
+new Store('Alki Beach', 2, 16, 4.6);
 
 
 // // It would be nice to have a single function that renders all of the individual dog rows...
-// function renderAllStores() {
-//   for(var i in allStores) {
-//     allStores[i].render();
-//   }
-// }
+function callCookieSalesOnAllStores () {
+  for(var i in allStores) {
+    allStores[i].creatingCookieSales();
+  }
+}
 
-
-// // Render the dogs in the table
-// Store.prototype.render = function () {
-//   var trElement = document.createElement('tr');
-
-//   var tdElement = document.createElement('td');
-//   tdElement.textContent = this.store;
-//   trElement.appendChild(tdElement);
-
-//   tdElement = document.createElement('td');
-//   tdElement.textContent = this.minCust;
-//   trElement.appendChild(tdElement);
-
-//   tdElement = document.createElement('td');
-//   tdElement.textContent = this.maxCust;
-//   trElement.appendChild(tdElement);
-
-//   tdElement = document.createElement('td');
-//   tdElement.textContent = this.hourlyCookieSales;
-//   trElement.appendChild(tdElement);
-
-//   storeTable.appendChild(trElement);
-// };
+function renderallStores() {
+  for(var i in allStores) {
+    allStores[i].render();
+  }
+}
 
 
 
@@ -172,21 +141,56 @@ function addNewStore(event){
   event.preventDefault();
   console.log(event.target.store.value);
 
-  var newStoreLocation = event.target.newStoreLocation.value;
-  var newMinCust = event.target.newMinCust.value;
-  var newMaxCust = event.target.newMaxCust.value;
-  var newAvgCookieSale = event.target.newAvgCookieSale.value;
+  var newStoreLocation = event.target.store.value;
+  var newMinCust = event.target.minCust.value;
+  var newMaxCust = event.target.maxCust.value;
+  var newAvgCookieSale = event.target.avgCookieSale.value;
 
   new Store(newStoreLocation, newMinCust, newMaxCust, newAvgCookieSale);
 
   storeTable.innerHTML = '';
   makeHeaderRow();
-  renderAllStores();
+  callCookieSalesOnAllStores();
+  renderallStores();
+  //makeFooterRow(;)
 }
 
 // add event listener
 storeForm.addEventListener('submit', addNewStore);
 
 // Now we need to call our functions
-makeHeaderRow();
-renderAllStores();
+//look at 9:57 last few mins in video
+callCookieSalesOnAllStores();
+renderallStores();
+
+//makeFooterRow();
+
+// function makeHeaderRow() {
+
+//   var headerTrElement = document.createElement('tr');
+//   var thElement = document.createElement('th');
+
+//   thElement.textContent = 'storeLocation';
+//   headerTrElement.appendChild(thElement);
+
+//   for ( var i = 0; i < storeHours.length; i++) {
+
+//     thElement = document.createElement('th');
+//     thElement.textContent = storeHours[i];
+//     headerTrElement.appendChild(thElement);
+
+//   }
+
+//   thElement = document.createElement('th');
+//   thElement.textContent = 'Day Total';
+//   headerTrElement.appendChild(thElement);
+//   storeTable.appendChild(headerTrElement);
+
+// }
+// makeHeaderRow();
+
+
+//grand total @10:03
+
+
+// nested for loop for total on bottom right hand side.
