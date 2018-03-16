@@ -10,6 +10,9 @@ var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2p
 var storeTable= document.getElementById('store');
 
 
+// Access the form so we can attach an event listener
+var storeForm = document.getElementById('store-form');
+
 // We need a constructor to make our dog objects
 function Store(storeLocation, minCust, maxCust, avgCookieSale) {
   this.store = storeLocation;
@@ -17,7 +20,12 @@ function Store(storeLocation, minCust, maxCust, avgCookieSale) {
   this.maxCust = maxCust;
   this.avgSale = avgCookieSale;
   this.hourlyCookieSales = [];
-  this.dayTotals = 0;
+
+  //this.calculatehoursale();
+  this.dayTotals = '';
+
+
+
   allStores.push(this);
 }
 
@@ -45,7 +53,6 @@ function makeHeaderRow() {
 
 }
 makeHeaderRow();
-
 
 
 
@@ -101,23 +108,89 @@ Store.prototype.render = function () {
 
 };
 
+// var grandTotal = function() {
+//   var dayTotals =0;
+//   for(var i = 0; i<grandTotal.length;i++) {
+//     dayTotals=dayTotals+grandTotal[i];
+//   }
+//   return dayTotals;
 
-var pike = new Store('1st and Pike', 23, 65, 6.3);
-pike.creatingCookieSales();
-pike.render();
+// };
 
-var seatac = new Store('Seatac Airport', 3, 24, 1.2);
-seatac.creatingCookieSales();
-seatac.render();
 
-var seattlecenter = new Store('Seattle Center', 11, 38, 3.7);
-seattlecenter.creatingCookieSales();
-seattlecenter.render();
+new Store('1st and Pike', 23, 65, 6.3);
+new Store('Seatac Airport', 3, 24, 1.2);
+new Store('Seattle Center', 11, 38, 3.7);
+new Store('Capitol Hill', 20, 38, 2.3);
+new Store('Alki Beach', 2, 16, 4.6);
 
-var capitiolhill = new Store('Capitol Hill', 20, 38, 2.3);
-capitiolhill.creatingCookieSales();
-capitiolhill.render();
 
-var alki = new Store('Alki Beach', 2, 16, 4.6);
-alki.creatingCookieSales();
-alki.render();
+// // It would be nice to have a single function that renders all of the individual dog rows...
+function callCookieSalesOnAllStores () {
+  for(var i in allStores) {
+    allStores[i].creatingCookieSales();
+  }
+}
+
+function renderallStores() {
+  for(var i in allStores) {
+    allStores[i].render();
+  }
+}
+
+// event listener's callback function
+function addNewStore(event){
+  event.preventDefault();
+  console.log(event.target.store.value);
+
+  var newStoreLocation = event.target.store.value;
+  var newMinCust = event.target.minCust.value;
+  var newMaxCust = event.target.maxCust.value;
+  var newAvgCookieSale = event.target.avgCookieSale.value;
+
+  new Store(newStoreLocation, newMinCust, newMaxCust, newAvgCookieSale);
+
+  storeTable.innerHTML = '';
+  makeHeaderRow();
+  callCookieSalesOnAllStores();
+  renderallStores();
+  makeFooterRow();
+}
+
+// add event listener
+storeForm.addEventListener('submit', addNewStore);
+
+
+callCookieSalesOnAllStores();
+renderallStores();
+
+
+
+function makeFooterRow() {
+
+  var footerTrElement = document.createElement('tr');
+  var thElement = document.createElement('th');
+  thElement.textContent = 'Total';
+  footerTrElement.appendChild(thElement);
+
+  for ( var i = 0; i < storeHours.length; i++) {
+    thElement = document.createElement('th');
+
+    thElement.textContent = 0 [i];
+
+    footerTrElement.appendChild(thElement);
+
+  }
+
+  thElement = document.createElement('th');
+  thElement.textContent = (0);
+  footerTrElement.appendChild(thElement);
+
+  storeTable.appendChild(footerTrElement);
+
+}
+
+makeFooterRow();
+
+
+
