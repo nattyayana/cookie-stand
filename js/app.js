@@ -6,10 +6,6 @@ var allStores = [];
 
 var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm' , '8pm'];
 
-
-
-//var totalHourlyCookies = ('0','0','0','0','0','0','0','0','0','0','0','0','0','0','0',);
-
 // We need to access the table that is in the DOM
 var storeTable= document.getElementById('store');
 
@@ -26,7 +22,7 @@ function Store(storeLocation, minCust, maxCust, avgCookieSale) {
   this.hourlyCookieSales = [];
 
   //this.calculatehoursale();
-  this.dayTotals = 0;
+  this.dayTotals = '';
 
 
 
@@ -57,7 +53,6 @@ function makeHeaderRow() {
 
 }
 makeHeaderRow();
-
 
 
 
@@ -113,6 +108,15 @@ Store.prototype.render = function () {
 
 };
 
+// var grandTotal = function() {
+//   var dayTotals =0;
+//   for(var i = 0; i<grandTotal.length;i++) {
+//     dayTotals=dayTotals+grandTotal[i];
+//   }
+//   return dayTotals;
+
+// };
+
 
 new Store('1st and Pike', 23, 65, 6.3);
 new Store('Seatac Airport', 3, 24, 1.2);
@@ -134,8 +138,6 @@ function renderallStores() {
   }
 }
 
-
-
 // event listener's callback function
 function addNewStore(event){
   event.preventDefault();
@@ -152,45 +154,43 @@ function addNewStore(event){
   makeHeaderRow();
   callCookieSalesOnAllStores();
   renderallStores();
-  //makeFooterRow(;)
+  makeFooterRow();
 }
 
 // add event listener
 storeForm.addEventListener('submit', addNewStore);
 
-// Now we need to call our functions
-//look at 9:57 last few mins in video
+
 callCookieSalesOnAllStores();
 renderallStores();
 
-//makeFooterRow();
-
-// function makeHeaderRow() {
-
-//   var headerTrElement = document.createElement('tr');
-//   var thElement = document.createElement('th');
-
-//   thElement.textContent = 'storeLocation';
-//   headerTrElement.appendChild(thElement);
-
-//   for ( var i = 0; i < storeHours.length; i++) {
-
-//     thElement = document.createElement('th');
-//     thElement.textContent = storeHours[i];
-//     headerTrElement.appendChild(thElement);
-
-//   }
-
-//   thElement = document.createElement('th');
-//   thElement.textContent = 'Day Total';
-//   headerTrElement.appendChild(thElement);
-//   storeTable.appendChild(headerTrElement);
-
-// }
-// makeHeaderRow();
 
 
-//grand total @10:03
+function makeFooterRow() {
+
+  var footerTrElement = document.createElement('tr');
+  var thElement = document.createElement('th');
+  thElement.textContent = 'Total';
+  footerTrElement.appendChild(thElement);
+
+  for ( var i = 0; i < storeHours.length; i++) {
+    thElement = document.createElement('th');
+
+    thElement.textContent = 0 [i];
+
+    footerTrElement.appendChild(thElement);
+
+  }
+
+  thElement = document.createElement('th');
+  thElement.textContent = (0);
+  footerTrElement.appendChild(thElement);
+
+  storeTable.appendChild(footerTrElement);
+
+}
+
+makeFooterRow();
 
 
-// nested for loop for total on bottom right hand side.
+
