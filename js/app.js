@@ -173,10 +173,10 @@ function makeFooterRow() {
   thElement.textContent = 'Total';
   footerTrElement.appendChild(thElement);
 
-  for ( var i = 0; i < storeHours.length; i++) {
+  for ( var i = 0; i < length; i++) {
     thElement = document.createElement('th');
 
-    thElement.textContent = 0 [i];
+    thElement.textContent = this.storeHours[i];
 
     footerTrElement.appendChild(thElement);
 
@@ -191,6 +191,3 @@ function makeFooterRow() {
 }
 
 makeFooterRow();
-
-
-
