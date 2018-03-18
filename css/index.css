@@ -1,0 +1,71 @@
+body {
+  background-color: salmon;
+}
+* {
+	font-family: 'Montserrat', sans-serif;
+}
+
+.float {
+  float: left;
+  width: 20%;
+}
+
+.center { 
+
+    margin-left: auto;
+    margin-right: auto; 
+    display: block; 
+  }
+
+
+.pagetext {
+    margin-bottom: 20px;
+    }
+    .pagetext p {
+    vertical-align: top;
+    text-align: center;
+    font-size: 28px;
+    display: inline-block;
+    background: #fff;
+    outline: 1px solid #777;
+    width: 484px;
+    height: 150px;
+    margin-right: 20px;
+    padding-top: 100px;
+    }
+    .pagetext img {
+    outline: 1px solid #777;
+    width: 450px;
+    height: 250px;
+    }
+
+
+  header {
+    border: 1px solid #777;
+    width: 960px;
+    margin: 20px auto;
+    position: relative;
+  }
+  
+  header h1 {
+    font-size: 36px;
+    position: absolute;
+    top:20px;
+    right:20px;
+  }
+  
+
+
+  footer {
+    background-color: #888;
+    padding: 20px;
+    font-size: 12px;
+    }
+    footer section {
+    width: 960px;
+    margin: 0 auto;
+    }
+    footer ul {
+    width: 188px;
+    display: inline-block;
+    }
